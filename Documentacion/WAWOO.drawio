@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.10">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.13">
   <diagram name="Page-1" id="KUGWA6SsFg4jssLDT2K9">
     <mxGraphModel dx="1114" dy="-4500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -32,16 +32,16 @@
           <mxGeometry x="405" y="5540" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="tpySa0M5cujHLNCxeQHs-11" value="PUBLICAR VIAJE&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="410" y="5640" width="120" height="80" as="geometry" />
+          <mxGeometry x="402.5" y="5750" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="tpySa0M5cujHLNCxeQHs-12" value="BUSCAR VIAJE" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="407.5" y="5750" width="120" height="80" as="geometry" />
+          <mxGeometry x="400" y="5860" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="tpySa0M5cujHLNCxeQHs-13" value="RESERVAR ASIENTO" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="412.5" y="5850" width="120" height="80" as="geometry" />
+          <mxGeometry x="405" y="5960" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="tpySa0M5cujHLNCxeQHs-14" value="GESTIONAR PERFIL" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="432.5" y="6270" width="120" height="80" as="geometry" />
+          <mxGeometry x="425" y="6380" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="tpySa0M5cujHLNCxeQHs-15" style="edgeStyle=none;rounded=1;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;fontColor=default;sketch=1;curveFitting=1;jiggle=2;" parent="1" source="tpySa0M5cujHLNCxeQHs-17" target="tpySa0M5cujHLNCxeQHs-26" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -71,13 +71,13 @@
           <mxGeometry x="725" y="5920" width="130" height="50" as="geometry" />
         </mxCell>
         <mxCell id="tpySa0M5cujHLNCxeQHs-24" value="CALIFICAR VIAJE" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="432.5" y="6160" width="120" height="80" as="geometry" />
+          <mxGeometry x="425" y="6270" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="tpySa0M5cujHLNCxeQHs-25" value="REPORTAR INCIDENCIA" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="425" y="6060" width="120" height="80" as="geometry" />
+          <mxGeometry x="417.5" y="6170" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="tpySa0M5cujHLNCxeQHs-26" value="GESTIONAR INCIDENCIAS" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="437.5" y="6380" width="120" height="80" as="geometry" />
+          <mxGeometry x="430" y="6490" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="tpySa0M5cujHLNCxeQHs-27" style="edgeStyle=none;rounded=1;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.033;entryY=0.363;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;fontColor=default;sketch=1;curveFitting=1;jiggle=2;" parent="1" source="tpySa0M5cujHLNCxeQHs-8" target="tpySa0M5cujHLNCxeQHs-24" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -95,10 +95,34 @@
           <mxGeometry x="265" y="5460" width="380" height="50" as="geometry" />
         </mxCell>
         <mxCell id="tpySa0M5cujHLNCxeQHs-32" value="GESTIONAR VIAJE" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="420" y="5950" width="120" height="80" as="geometry" />
+          <mxGeometry x="412.5" y="6060" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="tpySa0M5cujHLNCxeQHs-33" style="edgeStyle=none;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.002;entryY=0.334;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;" parent="1" source="tpySa0M5cujHLNCxeQHs-22" target="tpySa0M5cujHLNCxeQHs-32" edge="1">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uLHgADsEMMtIHjTVxLFg-1" value="IDENTIFICACION" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="402.5" y="5635" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uLHgADsEMMtIHjTVxLFg-2" style="edgeStyle=none;rounded=1;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;fontColor=default;sketch=1;curveFitting=1;jiggle=2;" edge="1" parent="1" target="uLHgADsEMMtIHjTVxLFg-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="5650" as="sourcePoint" />
+            <mxPoint x="415" y="5590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uLHgADsEMMtIHjTVxLFg-3" style="edgeStyle=none;rounded=1;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;labelBackgroundColor=none;fontColor=default;sketch=1;curveFitting=1;jiggle=2;" edge="1" parent="1" source="tpySa0M5cujHLNCxeQHs-22" target="uLHgADsEMMtIHjTVxLFg-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="714" y="5839" as="sourcePoint" />
+            <mxPoint x="510" y="5635" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uLHgADsEMMtIHjTVxLFg-4" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="5815" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uLHgADsEMMtIHjTVxLFg-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="380" y="5525" width="200" height="1055" as="geometry" />
+        </mxCell>
+        <mxCell id="uLHgADsEMMtIHjTVxLFg-7" value="BBDD" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="575" y="5890" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
