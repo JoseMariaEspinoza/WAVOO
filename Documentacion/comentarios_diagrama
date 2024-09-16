@@ -1,0 +1,15 @@
+1. Describir la cardinalidad de plazas
+2. Unir viajes e incidencias
+3. Unir conductor y coche 
+
+Sobre guardar en la BBDD una imagen los atributos a guardar en una tabla son
+@Column(name = "filename", length = 50)
+	private String filename;
+
+	@Column(name = "filetype", length = 15)
+	private String filetype;
+
+	@Column(name = "content")
+	private byte[] value; //aquí es donde se guarda la imagen
+
+
