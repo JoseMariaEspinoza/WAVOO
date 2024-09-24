@@ -18,7 +18,7 @@ public class ServicioUsuario implements IServicioUsuario{
 
     @Override
     public Usuario consultarUno(String dni) {
-        return repoUsuario.findById(dni).orElse(new Usuario());
+        return repoUsuario.findById(dni).orElse(null);
     }
 
     @Override
