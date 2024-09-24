@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,6 +15,7 @@ import java.time.LocalDate;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "usuario")
 public class Usuario {
+
     @Id
     @Column(length = 9, nullable = false)
     private String dni;
@@ -40,4 +42,7 @@ public class Usuario {
     private short nivelAcceso;
     @Column(nullable = false)
     private byte[] fotoUsuario;
+    @Column(length = 40, nullable = false)
+    private String rPreguntaSeguridad;
+
 }
