@@ -5,6 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -22,7 +27,18 @@ public class Viaje {
     private short plazasDisponibles;
     @Column(nullable = false)
     private double precio;
+    @Column(nullable = false)
+    private LocalDate fecha;
+    @Column(nullable = false)
+    private LocalTime hora;
+
     @ManyToOne
     @JoinColumn(name = "matricula", nullable = false,foreignKey = @ForeignKey(name = "FK_viaje_coche"))
     private Coche c1;
+
+    @OneToMany(mappedBy = "v1",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    List<Plazas> plazas;
 }
