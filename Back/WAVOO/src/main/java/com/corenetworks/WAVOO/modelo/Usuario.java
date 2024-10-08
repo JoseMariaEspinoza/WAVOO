@@ -44,5 +44,6 @@ public class Usuario {
     private byte[] fotoUsuario;
     @Column(length = 40, nullable = false)
     private String rPreguntaSeguridad;
+    private boolean usuarioActivo = false;
 
 }
