@@ -1,0 +1,38 @@
+**busquedaInicial():realiza la primera busqueda del viaje en BBDD
+
+**busquedaEnDetalle (): muestra la informacion completa del viaje
+
+**reservar(): escribe los datos del cliente en la BBDD.
+
+**identificacionUsuario: comprobar que la contraseña corresponde al usuario
+
+**registro(): comprueba que el usuario sea registrable
+
+**comprobacionSeguridad(): pide contraseña para modificar datos tando de viaje comoo usuario
+
+**editarPerfil(): devolver el formulario con sus datos para modificar
+
+**actualizarPerfil():sobreescribe los datos del usuario en la BBDD
+
+**eliminarPerfil(): inhabilita al usuario manteniendo los datos
+
+**historicoViajes():realiza la busqueda de los viajes del usuario en la BBDD
+
+**publicarViaje():escribe la informacion de un formulario con los datos del viaje en la BBDD
+
+**modificarViaje(): devolver el formulario con sus datos para modificar
+
+**actualizarViaje():sobreescribe los datos del viaje en la BBDD
+
+**eliminarViaje():**
+
+**cancelarViaje(): borra los datos del usuario del viaje
+
+
+
+
+
+
+
+
+
