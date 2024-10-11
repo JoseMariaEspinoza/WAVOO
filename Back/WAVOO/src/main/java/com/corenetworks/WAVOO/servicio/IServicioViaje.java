@@ -1,12 +1,16 @@
 package com.corenetworks.WAVOO.servicio;
 
+import com.corenetworks.WAVOO.dto.BusquedaCompleta;
+import com.corenetworks.WAVOO.dto.BusquedaInicial;
 import com.corenetworks.WAVOO.modelo.Viaje;
-import org.springframework.data.repository.query.Param;
+
+
 
 import java.time.LocalDate;
 import java.util.List;
 
 public interface IServicioViaje extends ICRUD<Viaje,Integer> {
-    List<Viaje> busquedaPrimeraTarjeta(String origen, String destino, LocalDate fechaInicio, LocalDate fechaFinal);
-    List<Viaje> busquedaTarjetacompleta(String origen,String destino,LocalDate fechaInicio,LocalDate fechaFinal);
+    List<BusquedaInicial> busquedaInicial(String origen,String destino,LocalDate fechaInicio,LocalDate fechaFinal,Short pDisponible);
+    BusquedaCompleta busquedaCompleta(Integer id);
+
 }

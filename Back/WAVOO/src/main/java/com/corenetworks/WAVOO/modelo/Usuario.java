@@ -1,16 +1,15 @@
 package com.corenetworks.WAVOO.modelo;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Setter
+@Getter
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "usuario")
@@ -40,7 +39,7 @@ public class Usuario {
     private boolean permisoConducir;
     @Column(nullable = false)
     private short nivelAcceso;
-    @Column(nullable = false)
+
     private byte[] fotoUsuario;
     @Column(length = 40, nullable = false)
     private String rPreguntaSeguridad;
