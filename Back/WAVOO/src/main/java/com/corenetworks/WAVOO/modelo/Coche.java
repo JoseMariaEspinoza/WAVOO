@@ -1,13 +1,12 @@
 package com.corenetworks.WAVOO.modelo;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Setter
+@Getter
 @Entity
 @Table(name = "coche")
 public class Coche {
@@ -24,10 +23,21 @@ public class Coche {
     private int anio;
     @Column(nullable = false)
     private short numeroPlazas;
-    @Column(nullable = false)
+
     private byte[] fotoCoche;
 
     @ManyToOne
-    @JoinColumn(name = "dni", nullable = false, foreignKey = @ForeignKey(name = "FK_coche_conductor"))
+    @JoinColumn(name = "dni", foreignKey = @ForeignKey(name = "FK_coche_conductor"))
     private Conductor co1;
+
+    public Coche(String matricula, String marca, String modelo, String carroceria, int anio, short numeroPlazas, byte[] fotoCoche) {
+        this.matricula = matricula;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.carroceria = carroceria;
+        this.anio = anio;
+        this.numeroPlazas = numeroPlazas;
+        this.fotoCoche = fotoCoche;
+    }
+
 }

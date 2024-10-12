@@ -1,13 +1,13 @@
 package com.corenetworks.WAVOO.modelo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Setter
+@Getter
 @Entity
 @Table(name = "plazas")
 public class Plazas {
@@ -17,11 +17,28 @@ public class Plazas {
     @Column(nullable = false)
     private short nAsiento;
     @ManyToOne
-    @JoinColumn(name = "dni", nullable = false,
+    @JoinColumn(name = "dni",
             foreignKey = @ForeignKey(name = "FK_plazas_usuario"))
     private Usuario u1;
+    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "id_viaje", nullable = false,
+    @JoinColumn(name = "id_viaje",
             foreignKey = @ForeignKey(name = "FK_plazas_viaje"))
     private Viaje v1;
+
+    public Plazas(short nAsiento, Usuario u1, Viaje v1) {
+        this.nAsiento = nAsiento;
+        this.u1 = u1;
+        this.v1 = v1;
+    }
+
+    @Override
+    public String toString() {
+        return "Plazas{" +
+                "idPlaza=" + idPlaza +
+                ", nAsiento=" + nAsiento +
+                ", u1=" + u1 +
+                ", v1=" + v1 +
+                '}';
+    }
 }
