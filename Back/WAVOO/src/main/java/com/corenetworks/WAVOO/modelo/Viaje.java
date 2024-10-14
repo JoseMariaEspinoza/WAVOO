@@ -41,28 +41,28 @@ public class Viaje {
             fetch = FetchType.EAGER)
     private List<Plazas> plazas = new ArrayList<>();
 
-    public Viaje(String origen, String destino, short plazasDisponibles, double precio, LocalDate fecha, LocalTime hora, Coche c1) {
-        this.origen = origen;
-        this.destino = destino;
-        this.plazasDisponibles = plazasDisponibles;
-        this.precio = precio;
-        this.fecha = fecha;
-        this.hora = hora;
-        this.c1 = c1;
-    }
+//    public Viaje(String origen, String destino, short plazasDisponibles, double precio, LocalDate fecha, LocalTime hora, Coche c1) {
+//        this.origen = origen;
+//        this.destino = destino;
+//        this.plazasDisponibles = plazasDisponibles;
+//        this.precio = precio;
+//        this.fecha = fecha;
+//        this.hora = hora;
+//        this.c1 = c1;
+//    }
 
-    @Override
-    public String toString() {
-        return "Viaje{" +
-                "idViaje=" + idViaje +
-                ", origen='" + origen + '\'' +
-                ", destino='" + destino + '\'' +
-                ", plazasDisponibles=" + plazasDisponibles +
-                ", precio=" + precio +
-                ", fecha=" + fecha +
-                ", hora=" + hora +
-                ", c1=" + c1 +
-                ", plazas=" + plazas +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Viaje{" +
+//                "idViaje=" + idViaje +
+//                ", origen='" + origen + '\'' +
+//                ", destino='" + destino + '\'' +
+//                ", plazasDisponibles=" + plazasDisponibles +
+//                ", precio=" + precio +
+//                ", fecha=" + fecha +
+//                ", hora=" + hora +
+//                ", c1=" + c1 +
+//                ", plazas=" + plazas +
+//                '}';
+//    }
 }

@@ -1,0 +1,28 @@
+<div class="viajes-container">
+    <div *ngFor="let viaje of busquedaInicial" class="viaje-card">
+        <div>
+            <a [routerLink]="['completa']"><h3>#{{viaje.idViaje}}</h3></a>
+            <h4>{{ viaje.origen }} → {{ viaje.destino }}</h4>
+            <p><strong>Fecha:</strong> {{ viaje.fecha | date: 'shortDate' }}</p>
+            <p><strong>Hora:</strong> {{ viaje.hora }}</p>
+            <p><strong>Precio:</strong> {{ viaje.precio | currency:'EUR' }}</p>
+            <p><strong>Plazas Disponibles:</strong> {{ viaje.plazasDisponibles }}</p>
+        </div>
+        
+        <div>
+            <p><strong>DNI:</strong> {{ viaje.dni }}</p>
+            <p><strong>Nombre Completo:</strong> {{ viaje.nombreCompleto }}</p>
+            <p><strong>Edad:</strong> {{ viaje.edad }}</p>  
+        </div>
+        
+        <div>
+            <p><strong>Marca:</strong> {{ viaje.marca }}</p>
+            <p><strong>Modelo:</strong> {{ viaje.modelo }}</p>  
+        </div>
+
+        <div>
+            <img [src]="viaje.fotoCoche" alt="Foto del coche" class="foto-coche">
+        </div>
+      
+    </div>
+  </div>

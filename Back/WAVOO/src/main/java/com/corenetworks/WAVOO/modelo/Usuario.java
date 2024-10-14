@@ -34,15 +34,28 @@ public class Usuario {
     private int telefono;
     @Column(length = 1, nullable = false)
     private char genero;
-    @Column(nullable = false)
-    private short rango;
     private boolean permisoConducir;
     @Column(nullable = false)
-    private short nivelAcceso;
+    private short nivelAcceso = 1;
 
     private byte[] fotoUsuario;
     @Column(length = 40, nullable = false)
     private String rPreguntaSeguridad;
     private boolean usuarioActivo = false;
 
+    public Usuario(String dni, String nombreCompleto, String direccion, LocalDate fechaNacimiento, String email, String usuario, String contrasena,
+                   int telefono, char genero, boolean permisoConducir, byte[] fotoUsuario, String rPreguntaSeguridad) {
+        this.dni = dni;
+        this.nombreCompleto = nombreCompleto;
+        this.direccion = direccion;
+        this.fechaNacimiento = fechaNacimiento;
+        this.email = email;
+        this.usuario = usuario;
+        this.contrasena = contrasena;
+        this.telefono = telefono;
+        this.genero = genero;
+        this.permisoConducir = permisoConducir;
+        this.fotoUsuario = fotoUsuario;
+        this.rPreguntaSeguridad = rPreguntaSeguridad;
+    }
 }

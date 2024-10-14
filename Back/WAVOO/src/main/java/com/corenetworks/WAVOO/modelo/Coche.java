@@ -30,14 +30,16 @@ public class Coche {
     @JoinColumn(name = "dni", foreignKey = @ForeignKey(name = "FK_coche_conductor"))
     private Conductor co1;
 
-    public Coche(String matricula, String marca, String modelo, String carroceria, int anio, short numeroPlazas, byte[] fotoCoche) {
-        this.matricula = matricula;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.carroceria = carroceria;
-        this.anio = anio;
-        this.numeroPlazas = numeroPlazas;
-        this.fotoCoche = fotoCoche;
-    }
+
+
+//    public Coche(String matricula, String marca, String modelo, String carroceria, int anio, short numeroPlazas, byte[] fotoCoche) {
+//        this.matricula = matricula;
+//        this.marca = marca;
+//        this.modelo = modelo;
+//        this.carroceria = carroceria;
+//        this.anio = anio;
+//        this.numeroPlazas = numeroPlazas;
+//        this.fotoCoche = fotoCoche;
+//    }
 
 }
