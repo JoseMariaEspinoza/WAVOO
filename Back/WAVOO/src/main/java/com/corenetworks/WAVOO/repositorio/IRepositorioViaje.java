@@ -58,14 +58,12 @@ public interface IRepositorioViaje extends IGenericRepo<Viaje,Integer> {
                    c.modelo,
                    c.matricula,
                    c.carroceria,
-                   c.anio,
-                   array_agg(p.n_asiento) AS asientos
+                   c.anio
             FROM viaje v
             JOIN coche c ON v.matricula = c.matricula
             JOIN plazas p ON v.id_viaje = p.id_viaje
             JOIN conductor con ON c.dni = con.dni
             JOIN usuario u ON con.dni = u.dni
-            WHERE v.id_viaje = :idViaje
-            GROUP BY v.id_viaje,u.dni,c.foto_coche,c.marca,c.modelo,c.matricula;""", nativeQuery = true)
+            WHERE v.id_viaje = :idViaje;""", nativeQuery = true)
     BusquedaCompleta busquedaCompleta(@Param("idViaje") Integer id);
 }

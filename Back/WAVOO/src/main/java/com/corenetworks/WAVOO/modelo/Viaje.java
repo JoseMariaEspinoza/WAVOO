@@ -41,7 +41,13 @@ public class Viaje {
             fetch = FetchType.EAGER)
     private List<Plazas> plazas = new ArrayList<>();
 
-//    public Viaje(String origen, String destino, short plazasDisponibles, double precio, LocalDate fecha, LocalTime hora, Coche c1) {
+    public void agregarPlaza(Plazas plaza) {
+        plazas.add(plaza);
+        plaza.setV1(this); // Asociar la plaza al viaje
+    }
+
+
+    //    public Viaje(String origen, String destino, short plazasDisponibles, double precio, LocalDate fecha, LocalTime hora, Coche c1) {
 //        this.origen = origen;
 //        this.destino = destino;
 //        this.plazasDisponibles = plazasDisponibles;

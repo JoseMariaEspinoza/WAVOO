@@ -3,7 +3,9 @@ package com.corenetworks.WAVOO.controlador;
 import com.corenetworks.WAVOO.dto.BusquedaCompleta;
 import com.corenetworks.WAVOO.dto.impl.BusquedaCompletaDTO;
 import com.corenetworks.WAVOO.dto.impl.BusquedaInicialDTO;
+import com.corenetworks.WAVOO.dto.impl.ViajeDTO;
 import com.corenetworks.WAVOO.excepciones.ExcepcionNoEncontradoModelo;
+import com.corenetworks.WAVOO.servicio.IServicioCoche;
 import com.corenetworks.WAVOO.servicio.IServicioViaje;
 import com.corenetworks.WAVOO.modelo.Viaje;
 
@@ -25,16 +27,18 @@ public class ViajeControlador {
 
     @Autowired
     private IServicioViaje servicioViaje;
+    @Autowired
+    private IServicioCoche servicioCoche;
 
     @Autowired
     private ModelMapper mapper;
 
-//    @GetMapping
-//    public ResponseEntity<List<Viaje>> consultarTodos() throws Exception {
-//
-//        List<Viaje> resultado = servicioViaje.listar();
-//        return new ResponseEntity<>(resultado, HttpStatus.OK);
-//    }
+    @GetMapping
+    public ResponseEntity<List<Viaje>> consultarTodos() throws Exception {
+
+        List<Viaje> resultado = servicioViaje.listar();
+        return new ResponseEntity<>(resultado, HttpStatus.OK);
+    }
 
     @GetMapping("/{origen}/{destino}/{fInicio}/{fFin}/{pDisponible}")
     public ResponseEntity<List<BusquedaInicialDTO>> buscarViajes(@PathVariable("origen")String origen,
@@ -58,9 +62,12 @@ public class ViajeControlador {
     }
 
     @PostMapping
-    public ResponseEntity<BusquedaCompletaDTO> insertar(@Validated @RequestBody BusquedaCompletaDTO viajeDTO) throws Exception {
+    public ResponseEntity<ViajeDTO> insertar(@Validated @RequestBody ViajeDTO viajeDTO) throws Exception {
         Viaje viaje = mapper.map(viajeDTO, Viaje.class);
-        BusquedaCompletaDTO dtoResponse = mapper.map(servicioViaje.registrar(viaje), BusquedaCompletaDTO.class);
+        viaje.setC1(servicioCoche.listarPorId(viajeDTO.getMatricula()));
+        System.out.println(viaje.getC1());
+        ViajeDTO dtoResponse = mapper.map(servicioViaje.darDeAltaViaje(viaje), ViajeDTO.class);
+
         return new ResponseEntity<>(dtoResponse, HttpStatus.CREATED);
     }
 

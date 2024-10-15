@@ -30,5 +30,19 @@
       <p><strong>Año:</strong> {{ resultadoCompleto.anio }}</p>
       <p><strong>Asientos:</strong> {{ resultadoCompleto.asientos.length }}</p>
     </div>
+
+    <!-- <div class="coche-esquema">
+        <div class="asientos">
+            <div *ngFor="let asiento of asientosDisponibles" 
+                 [class.disponible]="asiento.disponible"
+                 [class.seleccionado]="asiento.seleccionado"
+                 (click)="seleccionarAsiento(asiento)">
+                Asiento {{asiento.numero}}
+            </div>
+        </div>
+    </div> -->
+    
+    
+
   </div>
   

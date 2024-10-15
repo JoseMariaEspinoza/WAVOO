@@ -22,6 +22,6 @@ export class BusquedaCompletaComponent {
     this.servicio.getResultadosCompleta().subscribe(datos => {
       this.resultadoCompleto = datos;
       console.log('Resultados de búsqueda completa:', this.resultadoCompleto);
-    });
+  });
   }
 }

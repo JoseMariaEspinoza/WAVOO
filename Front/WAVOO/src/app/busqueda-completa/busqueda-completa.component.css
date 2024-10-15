@@ -1,11 +1,14 @@
 .tarjeta-completa {
+    display: flex;
+    justify-content: center;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 20px;
-    max-width: 600px;
+    width: 100%;
+    height: 100%;
   }
   
   h2 {
@@ -37,4 +40,5 @@
   p {
     margin: 5px 0;
   }
+  
   

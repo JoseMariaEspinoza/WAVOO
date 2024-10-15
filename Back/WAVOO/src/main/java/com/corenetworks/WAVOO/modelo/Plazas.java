@@ -26,8 +26,9 @@ public class Plazas {
             foreignKey = @ForeignKey(name = "FK_plazas_viaje"))
     private Viaje v1;
 
-    public Plazas(short nAsiento, Usuario u1, Viaje v1) {
-        this.nAsiento = nAsiento;
+
+
+    public Plazas(Usuario u1, Viaje v1) {
         this.u1 = u1;
         this.v1 = v1;
     }

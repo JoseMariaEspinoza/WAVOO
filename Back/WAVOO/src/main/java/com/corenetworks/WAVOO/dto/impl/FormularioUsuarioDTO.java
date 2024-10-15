@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -15,7 +17,7 @@ public class FormularioUsuarioDTO {
     private String contrasena;
     private String direccion;
     private String email;
-    private java.util.Date fechaNacimiento; // Puedes cambiar a LocalDate si prefieres
+    private Date fechaNacimiento; // Puedes cambiar a LocalDate si prefieres
     private byte[] fotoUsuario;
     private String genero;
     private String nombreCompleto;
