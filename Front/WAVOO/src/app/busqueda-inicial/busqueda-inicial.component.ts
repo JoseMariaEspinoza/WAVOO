@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterModule, RouterOutlet } from '@angular/router';
+import { Component, Input, OnInit} from '@angular/core';
+import { Router, RouterModule} from '@angular/router';
 import { ViajesService } from '../_servicio/viajes.service';
 import { BusquedaInicial } from '../_modelo/BusquedaInicial';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
+import { BusquedaCompleta } from '../_modelo/BusquedaCompleta';
 
 @Component({
   selector: 'app-busqueda-inicial',
@@ -12,18 +14,27 @@ import { CommonModule } from '@angular/common';
   templateUrl: './busqueda-inicial.component.html',
   styleUrls: ['./busqueda-inicial.component.css']
 })
-export class BusquedaInicialComponent implements OnInit {
+export class BusquedaInicialComponent implements OnInit{
+  resultado: BusquedaInicial[] = []; // Atributo público para acceder desde el HTML
 
-  busquedaInicial: BusquedaInicial[] = [];
-
-  constructor(private servicio: ViajesService) {}
+  constructor(private servicio: ViajesService, private router: Router) {}
 
   ngOnInit(): void {
-    
+    // Recupera los resultados de búsqueda desde el servicio
+    this.servicio.getResultadosBusqueda().subscribe(datos => {
+      this.resultado = datos;
+      console.log('Resultados de búsqueda inicial:', this.resultado);
+    });
   }
 
-  // navegarABusquedaCompleta(id: number): void {
-  //   // Navegar al componente de búsqueda completa
-  //   this.router.navigate(['/busqueda-completa', id]);
-  // }
+  busquedaCompleta!: BusquedaCompleta;
+
+  detalle(id:number): void {
+    this.servicio.busquedaCompleta(id)
+    .subscribe(datos => {
+      this.busquedaCompleta = datos
+      console.log(datos)
+      this.router.navigate(['/buscador/completa']);
+    });
+  }
 }

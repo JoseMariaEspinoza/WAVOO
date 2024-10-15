@@ -1,7 +1,7 @@
 <div class="viajes-container">
-    <div *ngFor="let viaje of busquedaInicial" class="viaje-card">
+    <div *ngFor="let viaje of resultado" class="viaje-card">
         <div>
-            <a [routerLink]="['completa']"><h3>#{{viaje.idViaje}}</h3></a>
+            <h3>#{{viaje.idViaje}}</h3>
             <h4>{{ viaje.origen }} → {{ viaje.destino }}</h4>
             <p><strong>Fecha:</strong> {{ viaje.fecha | date: 'shortDate' }}</p>
             <p><strong>Hora:</strong> {{ viaje.hora }}</p>
@@ -23,6 +23,7 @@
         <div>
             <img [src]="viaje.fotoCoche" alt="Foto del coche" class="foto-coche">
         </div>
-      
+        <button (click)="detalle(viaje.idViaje)">Ver Detalles</button>
+
     </div>
   </div>

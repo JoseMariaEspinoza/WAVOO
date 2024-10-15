@@ -1,0 +1,40 @@
+.tarjeta-completa {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    max-width: 600px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .informacion-viaje,
+  .informacion-usuario,
+  .informacion-coche {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+  }
+  
+  .informacion-usuario img,
+  .informacion-coche img {
+    width: 100px;
+    height: auto;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  strong {
+    color: #555;
+  }
+  
+  p {
+    margin: 5px 0;
+  }
+  

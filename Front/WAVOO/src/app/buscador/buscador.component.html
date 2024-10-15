@@ -22,9 +22,10 @@
         <option value="5">5</option>
         <option value="6">6</option>
     </select>
-    <button routerLink="buscador-inicial">Buscar</button>
+    <button (click)="buscar()">Buscar</button>
 </div>
-
+<!-- <app-busqueda-inicial [resultado]="busquedaInicial"></app-busqueda-inicial> -->
+<router-outlet></router-outlet>
   
   
 
