@@ -47,7 +47,7 @@ public class UsuarioControlador {
 //
 //    // Registrar un nuevo usuario
 //    @PostMapping
-//    public ResponseEntity<FormularioUsuarioDTO> insertar(@Validated @RequestBody FormularioUsuarioDTO formularioUsuario) throws Exception {
+//    public ResponseEntity<FormularioUsuarioDTO> reservar(@Validated @RequestBody FormularioUsuarioDTO formularioUsuario) throws Exception {
 //        Usuario usuario = mapper.map(formularioUsuario, Usuario.class);
 //        FormularioUsuarioDTO dtoResponse = mapper.map(servicioUsuario.registrar(usuario), FormularioUsuarioDTO.class);
 //        return new ResponseEntity<>(dtoResponse, HttpStatus.CREATED);

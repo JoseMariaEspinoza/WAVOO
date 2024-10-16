@@ -11,9 +11,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
+
 @Service
 public class ServicioUsuario extends CRUDImpl<Usuario,String> implements IServicioUsuario {
     @Autowired
