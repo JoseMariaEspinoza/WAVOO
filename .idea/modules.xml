@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/WAVOO.iml" filepath="$PROJECT_DIR$/.idea/WAVOO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Back/WAVOO/WAVOO.iml" filepath="$PROJECT_DIR$/Back/WAVOO/WAVOO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Wavoo.iml" filepath="$PROJECT_DIR$/.idea/Wavoo.iml" />
     </modules>
   </component>
 </project>

@@ -6,12 +6,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 public class PlazasDTO {
 
-    private int[] idPlaza;
+    private List<Integer> idPlaza;
     private String dni;
+    private int idViaje;
 }

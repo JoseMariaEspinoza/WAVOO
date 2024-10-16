@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 
 @NoArgsConstructor
@@ -34,7 +35,7 @@ public class Usuario {
     private int telefono;
     @Column(length = 1, nullable = false)
     private char genero;
-    private boolean permisoConducir;
+    private boolean permisoConducir = false;
     @Column(nullable = false)
     private short nivelAcceso = 1;
 
@@ -43,19 +44,23 @@ public class Usuario {
     private String rPreguntaSeguridad;
     private boolean usuarioActivo = false;
 
-    public Usuario(String dni, String nombreCompleto, String direccion, LocalDate fechaNacimiento, String email, String usuario, String contrasena,
-                   int telefono, char genero, boolean permisoConducir, byte[] fotoUsuario, String rPreguntaSeguridad) {
-        this.dni = dni;
-        this.nombreCompleto = nombreCompleto;
-        this.direccion = direccion;
-        this.fechaNacimiento = fechaNacimiento;
-        this.email = email;
-        this.usuario = usuario;
-        this.contrasena = contrasena;
-        this.telefono = telefono;
-        this.genero = genero;
-        this.permisoConducir = permisoConducir;
-        this.fotoUsuario = fotoUsuario;
-        this.rPreguntaSeguridad = rPreguntaSeguridad;
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "dni='" + dni + '\'' +
+                ", nombreCompleto='" + nombreCompleto + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", email='" + email + '\'' +
+                ", usuario='" + usuario + '\'' +
+                ", contrasena='" + contrasena + '\'' +
+                ", telefono=" + telefono +
+                ", genero=" + genero +
+                ", permisoConducir=" + permisoConducir +
+                ", nivelAcceso=" + nivelAcceso +
+                ", fotoUsuario=" + Arrays.toString(fotoUsuario) +
+                ", rPreguntaSeguridad='" + rPreguntaSeguridad + '\'' +
+                ", usuarioActivo=" + usuarioActivo +
+                '}';
     }
 }

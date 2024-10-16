@@ -65,7 +65,6 @@ public class ViajeControlador {
     public ResponseEntity<ViajeDTO> insertar(@Validated @RequestBody ViajeDTO viajeDTO) throws Exception {
         Viaje viaje = mapper.map(viajeDTO, Viaje.class);
         viaje.setC1(servicioCoche.listarPorId(viajeDTO.getMatricula()));
-        System.out.println(viaje.getC1());
         ViajeDTO dtoResponse = mapper.map(servicioViaje.darDeAltaViaje(viaje), ViajeDTO.class);
 
         return new ResponseEntity<>(dtoResponse, HttpStatus.CREATED);

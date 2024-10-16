@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @NoArgsConstructor
@@ -30,4 +31,11 @@ public class Conductor extends Usuario {
 //        this.verificado = verificado;
 //    }
 
+    @Override
+    public String toString() {
+        return "Conductor{" +
+                "fotoCarnet=" + Arrays.toString(fotoCarnet) +
+                ", verificado=" + verificado +
+                '}';
+    }
 }

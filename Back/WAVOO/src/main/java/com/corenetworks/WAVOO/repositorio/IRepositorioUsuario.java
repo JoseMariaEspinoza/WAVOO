@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 public interface IRepositorioUsuario extends IGenericRepo<Usuario,String> {
     @Query(value = """
             SELECT
-                u.dni AS usuario_dni,
+                u.dni,
                 u.contrasena,
                 u.direccion,
                 u.email,
@@ -19,22 +19,20 @@ public interface IRepositorioUsuario extends IGenericRepo<Usuario,String> {
                 u.permiso_conducir,
                 u.r_pregunta_seguridad,
                 u.telefono,
-                u.usuario AS usuario_nombre,
-          
+                u.usuario,
+               
                 c.foto_carnet,
-                c.dni AS conductor_dni,
-                
+               
                 co.matricula,
                 co.anio,
                 co.carroceria,
                 co.foto_coche,
                 co.marca,
                 co.modelo,
-                co.numero_plazas,
-                co.dni AS coche_dni
+                co.numero_plazas
             FROM public.usuario u
             JOIN public.conductor c ON u.dni = c.dni
-            JOIN public.coche co ON u.dni = co.dni
+            JOIN public.coche co ON c.dni = co.dni
             WHERE u.dni = :dni;""",nativeQuery = true)
     FormularioUsuario editarPerfil(@Param("dni")String dni);
 

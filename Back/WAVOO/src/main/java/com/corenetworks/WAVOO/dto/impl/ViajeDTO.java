@@ -17,7 +17,6 @@ public class ViajeDTO {
     private int idViaje;
     private String origen;
     private String destino;
-    private short plazasDisponibles;
     private double precio;
     private LocalDate fecha;
     private LocalTime hora;

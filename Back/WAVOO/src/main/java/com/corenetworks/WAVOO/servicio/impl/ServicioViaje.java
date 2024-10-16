@@ -45,6 +45,7 @@ public class ServicioViaje extends CRUDImpl<Viaje,Integer> implements IServicioV
             Plazas plaza = new Plazas();
             plaza.setNAsiento(i); // Asignar número de asiento creciente
             viaje.agregarPlaza(plaza); // Añadir plaza al viaje
+            viaje.setPlazasDisponibles(numeroPlazas);
         }
         // Guardar el viaje en la base de datos
         return repoViaje.save(viaje);

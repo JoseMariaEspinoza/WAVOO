@@ -3,6 +3,8 @@ package com.corenetworks.WAVOO.modelo;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Arrays;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -42,4 +44,17 @@ public class Coche {
 //        this.fotoCoche = fotoCoche;
 //    }
 
+    @Override
+    public String toString() {
+        return "Coche{" +
+                "matricula='" + matricula + '\'' +
+                ", marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", carroceria='" + carroceria + '\'' +
+                ", anio=" + anio +
+                ", numeroPlazas=" + numeroPlazas +
+                ", fotoCoche=" + Arrays.toString(fotoCoche) +
+                ", co1=" + co1 +
+                '}';
+    }
 }

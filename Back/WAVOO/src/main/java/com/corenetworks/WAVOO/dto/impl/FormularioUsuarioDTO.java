@@ -1,36 +1,36 @@
 package com.corenetworks.WAVOO.dto.impl;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.Arrays;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Setter
 @Getter
+@Setter
 public class FormularioUsuarioDTO {
-    // Datos del usuario
-    private String usuarioDni;
+
+    private String dni;
     private String contrasena;
     private String direccion;
     private String email;
-    private Date fechaNacimiento; // Puedes cambiar a LocalDate si prefieres
+    private LocalDate fechaNacimiento;
     private byte[] fotoUsuario;
     private String genero;
     private String nombreCompleto;
-    private boolean permisoConducir;
+    private Boolean permisoConducir;
+    @JsonProperty("rPreguntaSeguridad")
     private String rPreguntaSeguridad;
     private String telefono;
-    private String usuarioNombre;
+    private String usuario;
 
-    // Datos del conductor
-    private String conductorDni;
     private byte[] fotoCarnet;
 
-    // Datos del coche
     private String matricula;
     private int anio;
     private String carroceria;
@@ -39,4 +39,31 @@ public class FormularioUsuarioDTO {
     private String modelo;
     private short numeroPlazas;
     private String cocheDni;
+
+    @Override
+    public String toString() {
+        return "FormularioUsuarioDTO{" +
+                "dni='" + dni + '\'' +
+                ", contrasena='" + contrasena + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", email='" + email + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", fotoUsuario=" + Arrays.toString(fotoUsuario) +
+                ", genero='" + genero + '\'' +
+                ", nombreCompleto='" + nombreCompleto + '\'' +
+                ", permisoConducir=" + permisoConducir +
+                ", rPreguntaSeguridad='" + rPreguntaSeguridad + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", usuario='" + usuario + '\'' +
+                ", fotoCarnet=" + Arrays.toString(fotoCarnet) +
+                ", matricula='" + matricula + '\'' +
+                ", anio=" + anio +
+                ", carroceria='" + carroceria + '\'' +
+                ", fotoCoche=" + Arrays.toString(fotoCoche) +
+                ", marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", numeroPlazas=" + numeroPlazas +
+                ", cocheDni='" + cocheDni + '\'' +
+                '}';
+    }
 }

@@ -3,8 +3,10 @@ package com.corenetworks.WAVOO.controlador;
 import com.corenetworks.WAVOO.dto.impl.PlazasDTO;
 import com.corenetworks.WAVOO.excepciones.ExcepcionNoEncontradoModelo;
 import com.corenetworks.WAVOO.modelo.Plazas;
+import com.corenetworks.WAVOO.modelo.Viaje;
 import com.corenetworks.WAVOO.servicio.IServicioPlazas;
 import com.corenetworks.WAVOO.servicio.IServicioUsuario;
+import com.corenetworks.WAVOO.servicio.IServicioViaje;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,6 +27,8 @@ public class PlazasControlador {
     private IServicioPlazas servicioPlazas;
     @Autowired
     private IServicioUsuario servicioUsuario;
+    @Autowired
+    private IServicioViaje servicioViaje;
 
     @Autowired
     private ModelMapper mapper;
@@ -54,14 +58,17 @@ public class PlazasControlador {
 public ResponseEntity<List<PlazasDTO>> reservar(@Validated @RequestBody PlazasDTO plazasDTO) throws Exception {
     List<PlazasDTO> plazasReservadas = new ArrayList<>();
 
+    // Obtiene el viaje asociado al idViaje del PlazasDTO
+    Viaje viaje = servicioViaje.listarPorId(plazasDTO.getIdViaje());
+
     // Recorre el array de idPlaza
-    for (int i = 0; i < plazasDTO.getIdPlaza().length; i++) {
+    for (Integer elemento : plazasDTO.getIdPlaza()) {
         // Busca la plaza por ID
-        Plazas pDisponible = servicioPlazas.listarPorId(plazasDTO.getIdPlaza()[i]);
+        Plazas pDisponible = servicioPlazas.listarPorId(elemento);
 
         // Verifica si la plaza está ocupada
         if (pDisponible.getU1() != null) {
-            throw new ExcepcionNoEncontradoModelo("Plaza ocupada para el ID: " + plazasDTO.getIdPlaza()[i]);
+            throw new ExcepcionNoEncontradoModelo("Plaza ocupada para el ID: " + elemento);
         }
 
         // Asigna el usuario a la plaza
@@ -74,6 +81,15 @@ public ResponseEntity<List<PlazasDTO>> reservar(@Validated @RequestBody PlazasDT
         PlazasDTO plazaDTO = mapper.map(plazaModificada, PlazasDTO.class);
         plazasReservadas.add(plazaDTO);
     }
+
+    // Actualiza el número de plazas disponibles
+    long plazasSinAsignar = viaje.getPlazas().stream()
+            .filter(plaza -> plaza.getU1() == null)
+            .count();
+    viaje.setPlazasDisponibles((short) plazasSinAsignar);
+
+    // Guarda el viaje actualizado
+    servicioViaje.modificar(viaje);
 
     // Devuelve las plazas reservadas
     return new ResponseEntity<>(plazasReservadas, HttpStatus.OK);
