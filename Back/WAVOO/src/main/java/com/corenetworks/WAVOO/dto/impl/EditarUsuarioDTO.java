@@ -8,15 +8,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class FormularioUsuarioDTO {
-
+public class EditarUsuarioDTO {
     private String dni;
     private String contrasena;
     private String direccion;
@@ -33,6 +31,5 @@ public class FormularioUsuarioDTO {
 
     private byte[] fotoCarnet;
 
-    private List<Coche> coches;
-
+    private List<CochesDTO> coches;
 }

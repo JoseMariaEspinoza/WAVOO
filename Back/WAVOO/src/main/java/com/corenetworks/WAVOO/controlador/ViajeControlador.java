@@ -33,13 +33,6 @@ public class ViajeControlador {
     @Autowired
     private ModelMapper mapper;
 
-    @GetMapping
-    public ResponseEntity<List<Viaje>> consultarTodos() throws Exception {
-
-        List<Viaje> resultado = servicioViaje.listar();
-        return new ResponseEntity<>(resultado, HttpStatus.OK);
-    }
-
     @GetMapping("/{origen}/{destino}/{fInicio}/{fFin}/{pDisponible}")
     public ResponseEntity<List<BusquedaInicialDTO>> buscarViajes(@PathVariable("origen")String origen,
     @PathVariable("destino") String destino, @PathVariable("fInicio") LocalDate fechaInicio,
@@ -65,6 +58,8 @@ public class ViajeControlador {
     public ResponseEntity<ViajeDTO> insertar(@Validated @RequestBody ViajeDTO viajeDTO) throws Exception {
         Viaje viaje = mapper.map(viajeDTO, Viaje.class);
         viaje.setC1(servicioCoche.listarPorId(viajeDTO.getMatricula()));
+
+        // Llamar al servicio con el DNI del conductor
         ViajeDTO dtoResponse = mapper.map(servicioViaje.darDeAltaViaje(viaje), ViajeDTO.class);
 
         return new ResponseEntity<>(dtoResponse, HttpStatus.CREATED);
@@ -80,13 +75,19 @@ public class ViajeControlador {
         return new ResponseEntity<>(mapper.map(servicioViaje.modificar(viaje), BusquedaCompletaDTO.class), HttpStatus.OK);
     }
 
-    @DeleteMapping("{idViaje}")
-    public ResponseEntity<Void> eliminar(@PathVariable("idViaje") int idViaje) throws Exception {
-        Viaje viajeExistente = servicioViaje.listarPorId(idViaje);
-        if (viajeExistente == null) {
-            throw new ExcepcionNoEncontradoModelo("ID No encontrado " + idViaje);
+    @DeleteMapping("/{idViaje}")
+    public ResponseEntity<Void> eliminarViaje(@PathVariable("idViaje") Integer idViaje) {
+        try {
+            // Llamar al servicio para eliminar el viaje
+            servicioViaje.eliminarViaje(idViaje);
+            // Retornar un estado 204 No Content indicando que la eliminación fue exitosa
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (ExcepcionNoEncontradoModelo e) {
+            // Si no se encuentra el viaje, retornar un estado 404 Not Found
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            // En caso de cualquier otro error, retornar un estado 500 Internal Server Error
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        servicioViaje.eliminar(idViaje);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

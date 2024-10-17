@@ -13,4 +13,5 @@ public interface IServicioViaje extends ICRUD<Viaje,Integer> {
     List<BusquedaInicial> busquedaInicial(String origen,String destino,LocalDate fechaInicio,LocalDate fechaFinal,Short pDisponible);
     BusquedaCompleta busquedaCompleta(Integer id);
     Viaje darDeAltaViaje(Viaje viaje);
+    void eliminarViaje(int idViaje);
 }

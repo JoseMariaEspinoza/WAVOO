@@ -5,7 +5,9 @@ import com.corenetworks.WAVOO.repositorio.IGenericRepo;
 import com.corenetworks.WAVOO.repositorio.IRepositorioConductor;
 import com.corenetworks.WAVOO.servicio.IServicioConductor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ServicioConductor extends CRUDImpl<Conductor,String> implements IServicioConductor {
     @Autowired
     private IRepositorioConductor repoConductor;
@@ -14,4 +16,6 @@ public class ServicioConductor extends CRUDImpl<Conductor,String> implements ISe
     protected IGenericRepo<Conductor, String> getRepo() {
         return repoConductor;
     }
+
+
 }

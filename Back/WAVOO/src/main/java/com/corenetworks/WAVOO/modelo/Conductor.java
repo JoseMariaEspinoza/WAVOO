@@ -19,11 +19,11 @@ public class Conductor extends Usuario {
     private byte[] fotoCarnet;
     private boolean verificado = false;
 
-//    @OneToMany(mappedBy = "co1",
-//            cascade = CascadeType.ALL,
-//            orphanRemoval = true,
-//            fetch = FetchType.EAGER)
-//    private List<Coche> coches = new ArrayList<>();
+    @OneToMany(mappedBy = "co1",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    private List<Coche> coches = new ArrayList<>();
 
 //    public Conductor(String dni, String nombreCompleto, String direccion, LocalDate fechaNacimiento, String email, String usuario, String contrasena, int telefono, char genero, short rango, boolean permisoConducir, short nivelAcceso, byte[] fotoUsuario, String rPreguntaSeguridad, boolean usuarioActivo, byte[] fotoCarnet, boolean verificado) {
 //        super(dni, nombreCompleto, direccion, fechaNacimiento, email, usuario, contrasena, telefono, genero, rango, permisoConducir, nivelAcceso, fotoUsuario, rPreguntaSeguridad, usuarioActivo);
