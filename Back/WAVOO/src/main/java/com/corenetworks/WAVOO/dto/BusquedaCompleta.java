@@ -31,5 +31,5 @@ public interface BusquedaCompleta{
     int getAnio();
 
     // Métodos para obtener los datos de las plazas
-    List<Short> getAsientos();
+    List<Integer> getIdPlaza();
 }

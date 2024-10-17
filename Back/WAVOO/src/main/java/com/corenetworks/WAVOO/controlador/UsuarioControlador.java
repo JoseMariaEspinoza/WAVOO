@@ -231,17 +231,19 @@ public class UsuarioControlador {
 
         return ResponseEntity.ok("Usuario actualizado correctamente");
     }
+    @PutMapping("/desactivar/{idUsuario}")
+    public ResponseEntity<Void> desactivarUsuario(@PathVariable("idUsuario") String dni) throws Exception {
+        Usuario usuarioExistente = servicioUsuario.listarPorId(dni);
+        if (usuarioExistente == null) {
+            throw new ExcepcionNoEncontradoModelo("Dni No encontrado ");
+        }
+        usuarioExistente.setUsuarioActivo(false);
+        servicioUsuario.modificar(usuarioExistente);  // Asumiendo que tienes un método `modificar` en tu servicio
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 
 
-    // Eliminar un usuario por su ID
-//    @DeleteMapping("/{idUsuario}")
-//    public ResponseEntity<Void> eliminar(@PathVariable("idUsuario") int idUsuario) throws Exception {
-//        Usuario usuarioExistente = servicioUsuario.listarPorId(idUsuario);
-//        if (usuarioExistente == null) {
-//            throw new ExcepcionNoEncontradoModelo("ID No encontrado " + idUsuario);
-//        }
-//        servicioUsuario.eliminar(idUsuario);
-//        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//    }
+
+
 }
 

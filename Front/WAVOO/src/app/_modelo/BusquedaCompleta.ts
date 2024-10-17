@@ -18,5 +18,5 @@ export interface BusquedaCompleta {
     matricula:         string;
     carroceria:        string;
     anio:              number;
-    asientos:          number[];
+    id_plaza: number[];
 }

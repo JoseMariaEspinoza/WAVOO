@@ -39,7 +39,7 @@ export class ViajesService {
     matricula: '',
     carroceria: '',
     anio: 0,
-    asientos: []
+    id_plaza: []
   });
   resultadosCompleta$ = this.resultadosCompletaSubject.asObservable();
 

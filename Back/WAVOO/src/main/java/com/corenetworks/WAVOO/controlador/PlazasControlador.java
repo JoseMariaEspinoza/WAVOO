@@ -33,27 +33,6 @@ public class PlazasControlador {
     @Autowired
     private ModelMapper mapper;
 
-
-//    @GetMapping
-//    public ResponseEntity<List<PlazasDTO>> consultarTodos() throws Exception {
-//        List<PlazasDTO> resultado = servicioPlazas.listar()
-//                .stream()
-//                .map(plaza -> {PlazasDTO plazasDTO = mapper.map(plaza, PlazasDTO.class);
-//                    if (plaza.getU1() != null) {plazasDTO.setDni(plaza.getU1().getDni());}
-//                    if (plaza.getV1() != null) {plazasDTO.setIdViaje(plaza.getV1().getIdViaje());}
-//                    return plazasDTO;}).collect(Collectors.toList());
-//        return new ResponseEntity<>(resultado, HttpStatus.OK);
-//    }
-
-//    @PutMapping
-//    public ResponseEntity<PlazasDTO> reservar(@RequestBody PlazasDTO plazasDTO) throws Exception {
-//        Plazas pDisponible = servicioPlazas.listarPorId(plazasDTO.getIdPlaza());
-//        pDisponible.setU1(servicioUsuario.listarPorId(plazasDTO.getDni()));
-//        if (pDisponible.getU1() == null) {
-//            throw new ExcepcionNoEncontradoModelo("Plaza ocupada");
-//        }
-//        return new ResponseEntity<>(mapper.map(servicioPlazas.modificar(pDisponible), PlazasDTO.class), HttpStatus.OK);
-//    }
 @PutMapping
 public ResponseEntity<List<PlazasDTO>> reservar(@Validated @RequestBody PlazasDTO plazasDTO) throws Exception {
     List<PlazasDTO> plazasReservadas = new ArrayList<>();
@@ -94,5 +73,46 @@ public ResponseEntity<List<PlazasDTO>> reservar(@Validated @RequestBody PlazasDT
     // Devuelve las plazas reservadas
     return new ResponseEntity<>(plazasReservadas, HttpStatus.OK);
 }
+    @PutMapping("/cancelarReserva")
+    public ResponseEntity<List<PlazasDTO>> cancelarReserva(@Validated @RequestBody PlazasDTO plazasDTO) throws Exception {
+        List<PlazasDTO> plazasCanceladas = new ArrayList<>();
+
+        // Obtiene el viaje asociado al idViaje del PlazasDTO
+        Viaje viaje = servicioViaje.listarPorId(plazasDTO.getIdViaje());
+
+        // Recorre el array de idPlaza
+        for (Integer elemento : plazasDTO.getIdPlaza()) {
+            // Busca la plaza por ID
+            Plazas pReservada = servicioPlazas.listarPorId(elemento);
+
+            // Verifica si la plaza tiene un usuario asignado
+            if (pReservada.getU1() == null || !pReservada.getU1().getDni().equals(plazasDTO.getDni())) {
+                throw new ExcepcionNoEncontradoModelo("No se encontró una reserva activa para el ID de plaza: " + elemento);
+            }
+
+            // Libera la plaza, es decir, elimina la asignación del usuario
+            pReservada.setU1(null);
+
+            // Guarda la plaza modificada
+            Plazas plazaModificada = servicioPlazas.modificar(pReservada);
+
+            // Agrega el DTO de la plaza cancelada a la lista
+            PlazasDTO plazaDTO = mapper.map(plazaModificada, PlazasDTO.class);
+            plazasCanceladas.add(plazaDTO);
+        }
+
+        // Actualiza el número de plazas disponibles
+        long plazasSinAsignar = viaje.getPlazas().stream()
+                .filter(plaza -> plaza.getU1() == null)
+                .count();
+        viaje.setPlazasDisponibles((short) plazasSinAsignar);
+
+        // Guarda el viaje actualizado
+        servicioViaje.modificar(viaje);
+
+        // Devuelve las plazas canceladas
+        return new ResponseEntity<>(plazasCanceladas, HttpStatus.OK);
+    }
+
 }
 

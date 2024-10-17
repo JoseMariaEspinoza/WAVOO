@@ -1,0 +1,40 @@
+.coche-asientos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .fila-delantera {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* O el ancho deseado */
+    max-width: 600px; /* Limita el ancho total de la fila */
+    margin-bottom: 20px; /* Espacio entre filas */
+  }
+  
+  .fila-trasera {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* O el ancho deseado */
+    max-width: 600px; /* Limita el ancho total de la fila */
+  }
+  
+  .asiento {
+    width: 80px; /* Ajusta el ancho del botón */
+    height: 80px; /* Ajusta la altura del botón */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .asiento:hover {
+    background-color: #e0e0e0; /* Cambia el color al pasar el ratón */
+  }
+  
+  .asiento:disabled {
+    background-color: #d3d3d3; /* Color para asientos ocupados */
+    cursor: not-allowed;
+  }
+  

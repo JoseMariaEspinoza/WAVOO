@@ -59,7 +59,7 @@ public interface IRepositorioViaje extends IGenericRepo<Viaje,Integer> {
               c.matricula,
               c.carroceria,
               c.anio,
-              array_agg(p.n_asiento) AS n_asientos
+              array_agg(p.id_plaza) AS id_plaza
        FROM viaje v
        JOIN coche c ON v.matricula = c.matricula
        JOIN plazas p ON v.id_viaje = p.id_viaje

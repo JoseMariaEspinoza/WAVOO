@@ -1,35 +1,37 @@
-<div class="tarjeta-completa">
-    <h2>Detalles del Viaje</h2>
-    <div class="informacion-viaje">
-      <h3>#{{ resultadoCompleto.idViaje }}</h3>
-      <p><strong>Origen:</strong> {{ resultadoCompleto.origen }}</p>
-      <p><strong>Destino:</strong> {{ resultadoCompleto.destino }}</p>
-      <p><strong>Fecha:</strong> {{ resultadoCompleto.fecha | date: 'shortDate' }}</p>
-      <p><strong>Hora:</strong> {{ resultadoCompleto.hora }}</p>
-      <p><strong>Precio:</strong> {{ resultadoCompleto.precio | currency:'EUR' }}</p>
-      <p><strong>Plazas Disponibles:</strong> {{ resultadoCompleto.plazasDisponibles }}</p>
-    </div>
-  
-    <div class="informacion-usuario">
-      <h4>Datos del Usuario</h4>
-      <img [src]="resultadoCompleto.fotoUsuario" alt="Foto del Usuario" class="foto-usuario">
-      <p><strong>DNI:</strong> {{ resultadoCompleto.dni }}</p>
-      <p><strong>Nombre Completo:</strong> {{ resultadoCompleto.nombreCompleto }}</p>
-      <p><strong>Teléfono:</strong> {{ resultadoCompleto.telefono }}</p>
-      <p><strong>Género:</strong> {{ resultadoCompleto.genero }}</p>
-      <p><strong>Edad:</strong> {{ resultadoCompleto.edad }}</p>
-    </div>
-  
-    <div class="informacion-coche">
-      <h4>Datos del Coche</h4>
-      <img [src]="resultadoCompleto.fotoCoche" alt="Foto del Coche" class="foto-coche">
-      <p><strong>Marca:</strong> {{ resultadoCompleto.marca }}</p>
-      <p><strong>Modelo:</strong> {{ resultadoCompleto.modelo }}</p>
-      <p><strong>Matrícula:</strong> {{ resultadoCompleto.matricula }}</p>
-      <p><strong>Carrocería:</strong> {{ resultadoCompleto.carroceria }}</p>
-      <p><strong>Año:</strong> {{ resultadoCompleto.anio }}</p>
-      <p><strong>Asientos:</strong> {{ resultadoCompleto.asientos.length }}</p>
-    </div>
+<table class="tarjeta-completa">
+  <tr>
+      <td class="foto-coche">
+          <img [src]="resultadoCompleto.fotoCoche" alt="Foto del Coche" class="foto-coche">
+      </td>
+      <td class="informacion-viaje">
+          <h3>#{{ resultadoCompleto.idViaje }}</h3>
+          <strong>Origen:</strong> {{ resultadoCompleto.origen }}<br>
+          <strong>Destino:</strong> {{ resultadoCompleto.destino }}<br>
+          <strong>Fecha:</strong> {{ resultadoCompleto.fecha | date: 'shortDate' }}<br>
+          <strong>Hora:</strong> {{ resultadoCompleto.hora }}<br>
+          <strong>Precio:</strong> {{ resultadoCompleto.precio | currency:'EUR' }}
+      </td>
+      <td class="informacion-usuario">
+          <strong>DNI:</strong> {{ resultadoCompleto.dni }}<br>
+          <strong>Nombre Completo:</strong> {{ resultadoCompleto.nombreCompleto }}<br>
+          <strong>Teléfono:</strong> {{ resultadoCompleto.telefono }}<br>
+          <strong>Género:</strong> {{ resultadoCompleto.genero }}<br>
+          <strong>Edad:</strong> {{ resultadoCompleto.edad }}
+      </td>
+      <td class="informacion-coche">
+          <strong>Marca:</strong> {{ resultadoCompleto.marca }}<br>
+          <strong>Modelo:</strong> {{ resultadoCompleto.modelo }}<br>
+          <strong>Matrícula:</strong> {{ resultadoCompleto.matricula }}<br>
+          <strong>Carrocería:</strong> {{ resultadoCompleto.carroceria }}<br>
+          <strong>Año:</strong> {{ resultadoCompleto.anio }}<br>
+          <strong>Plazas Disponibles:</strong> {{ resultadoCompleto.plazasDisponibles }}
+      </td>
+      <td class="foto-usuario">
+          <img [src]="resultadoCompleto.fotoUsuario" alt="Foto del Usuario" class="foto-usuario">
+      </td>
+  </tr>
+</table>
+
 
     <!-- <div class="coche-esquema">
         <div class="asientos">
@@ -44,5 +46,5 @@
     
     
 
-  </div>
+  
   

@@ -1,0 +1,39 @@
+.viajes-container {
+    width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
+}
+
+table {
+    width: 100%; /* Asegura que la tabla ocupe el ancho completo */
+    border-collapse: collapse; /* Para un mejor diseño */
+}
+
+.viaje-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px 0; /* Margen vertical entre tarjetas */
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.viaje-card img.foto-coche {
+    max-width: 100%; /* Ajusta el tamaño de la imagen al ancho del contenedor */
+    border-radius: 4px;
+}
+
+h4 {
+    margin: 0 0 10px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

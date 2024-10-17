@@ -18,31 +18,31 @@ public class CocheControlador {
     @Autowired
     private IServicioUsuario servicioUsuario;
 
-//    @GetMapping("/1/{dni}")
-//    public ResponseEntity<List<CochesDTO>> obtenerCochesPorConductor(@PathVariable String dni) {
-//        // Obtener la lista de coches para el conductor específico
-//        List<Coche> coches = servicioUsuario.obtenerCochesPorConductor(dni);
-//
-//        if (coches == null || coches.isEmpty()) {
-//            return ResponseEntity.notFound().build();  // Devuelve un 404 si no hay coches
-//        }
-//
-//        // Mapear cada coche a CochesDTO
-//        List<CochesDTO> cochesDTOList = coches.stream()
-//                .map(coche -> new CochesDTO(
-//                        coche.getMatricula(),
-//                        coche.getMarca(),
-//                        coche.getModelo(),
-//                        coche.getCarroceria(),
-//                        coche.getAnio(),
-//                        coche.getNumeroPlazas(),
-//                        coche.getFotoCoche()
-//                ))
-//                .collect(Collectors.toList());
-//
-//        // Retornar la lista de CochesDTO
-//        return ResponseEntity.ok(cochesDTOList);
-//    }
+    @GetMapping("/1/{dni}")
+    public ResponseEntity<List<CochesDTO>> obtenerCochesPorConductor(@PathVariable String dni) {
+        // Obtener la lista de coches para el conductor específico
+        List<Coche> coches = servicioUsuario.obtenerCochesPorConductor(dni);
+
+        if (coches == null || coches.isEmpty()) {
+            return ResponseEntity.notFound().build();  // Devuelve un 404 si no hay coches
+        }
+
+        // Mapear cada coche a CochesDTO
+        List<CochesDTO> cochesDTOList = coches.stream()
+                .map(coche -> new CochesDTO(
+                        coche.getMatricula(),
+                        coche.getMarca(),
+                        coche.getModelo(),
+                        coche.getCarroceria(),
+                        coche.getAnio(),
+                        coche.getNumeroPlazas(),
+                        coche.getFotoCoche()
+                ))
+                .collect(Collectors.toList());
+
+        // Retornar la lista de CochesDTO
+        return ResponseEntity.ok(cochesDTOList);
+    }
 
     @GetMapping("/{dni}")
     public ResponseEntity<List<String>> obtenerMatriculasConductor(@PathVariable String dni) {

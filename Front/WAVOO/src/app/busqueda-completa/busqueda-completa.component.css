@@ -1,44 +1,32 @@
 .tarjeta-completa {
-    display: flex;
-    justify-content: center;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px;
-    width: 100%;
-    height: 100%;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .informacion-viaje,
-  .informacion-usuario,
-  .informacion-coche {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-  }
-  
-  .informacion-usuario img,
-  .informacion-coche img {
-    width: 100px;
-    height: auto;
-    border-radius: 4px;
-    margin-right: 10px;
-  }
-  
-  strong {
-    color: #555;
-  }
-  
-  p {
-    margin: 5px 0;
-  }
-  
-  
+  width: 100%; /* Ocupar todo el ancho de la pantalla */
+  height: 50vh; /* Ocupar todo el alto de la pantalla */
+  border-collapse: collapse; /* Para fusionar los bordes */
+  background-color: #fff; /* Color de fondo blanco */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.tarjeta-completa td {
+  padding: 16px; /* Espaciado interno */
+  vertical-align: top; /* Alinear el contenido en la parte superior */
+}
+
+.foto-coche, .foto-usuario {
+  max-width: 100%; /* Asegurarse de que la imagen no exceda el ancho de la celda */
+  border-radius: 4px; /* Bordes redondeados */
+}
+
+.informacion-viaje,
+.informacion-usuario,
+.informacion-coche {
+  font-size: 1.1em; /* Tamaño de fuente aumentado para mayor legibilidad */
+}
+
+.informacion-viaje h3 {
+  margin: 0 0 10px; /* Margen inferior para el encabezado */
+}
+
+.informacion-coche {
+  border-left: 1px solid #ccc; /* Línea divisoria a la izquierda */
+  padding-left: 16px; /* Espaciado interno a la izquierda */
+}
