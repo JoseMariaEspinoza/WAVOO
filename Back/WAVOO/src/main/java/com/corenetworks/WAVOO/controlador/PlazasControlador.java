@@ -1,5 +1,6 @@
 package com.corenetworks.WAVOO.controlador;
 
+import com.corenetworks.WAVOO.dto.impl.PlazaInfoDTO;
 import com.corenetworks.WAVOO.dto.impl.PlazasDTO;
 import com.corenetworks.WAVOO.excepciones.ExcepcionNoEncontradoModelo;
 import com.corenetworks.WAVOO.modelo.Plazas;
@@ -33,32 +34,75 @@ public class PlazasControlador {
     @Autowired
     private ModelMapper mapper;
 
+//@PutMapping
+//public ResponseEntity<List<PlazasDTO>> reservar(@Validated @RequestBody PlazasDTO plazasDTO) throws Exception {
+//    List<PlazasDTO> plazasReservadas = new ArrayList<>();
+//
+//    // Obtiene el viaje asociado al idViaje del PlazasDTO
+//    Viaje viaje = servicioViaje.listarPorId(plazasDTO.getIdViaje());
+//
+//    // Recorre el array de idPlaza
+//    for (Integer elemento : plazasDTO.getIdPlaza()) {
+//        // Busca la plaza por ID
+//        Plazas pDisponible = servicioPlazas.listarPorId(elemento);
+//
+//        // Verifica si la plaza está ocupada
+//        if (pDisponible.getU1() != null) {
+//            throw new ExcepcionNoEncontradoModelo("Plaza ocupada para el ID: " + elemento);
+//        }
+//
+//        // Asigna el usuario a la plaza
+//        pDisponible.setU1(servicioUsuario.listarPorId(plazasDTO.getDni()));
+//
+//        // Guarda la plaza modificada
+//        Plazas plazaModificada = servicioPlazas.modificar(pDisponible);
+//
+//        // Agrega el DTO de la plaza reservada a la lista
+//        PlazasDTO plazaDTO = mapper.map(plazaModificada, PlazasDTO.class);
+//        plazasReservadas.add(plazaDTO);
+//    }
+//
+//    // Actualiza el número de plazas disponibles
+//    long plazasSinAsignar = viaje.getPlazas().stream()
+//            .filter(plaza -> plaza.getU1() == null)
+//            .count();
+//    viaje.setPlazasDisponibles((short) plazasSinAsignar);
+//
+//    // Guarda el viaje actualizado
+//    servicioViaje.modificar(viaje);
+//
+//    // Devuelve las plazas reservadas
+//    return new ResponseEntity<>(plazasReservadas, HttpStatus.OK);
+//}
 @PutMapping
-public ResponseEntity<List<PlazasDTO>> reservar(@Validated @RequestBody PlazasDTO plazasDTO) throws Exception {
-    List<PlazasDTO> plazasReservadas = new ArrayList<>();
+public ResponseEntity<List<PlazaInfoDTO>> reservar(@Validated @RequestBody PlazasDTO plazasDTO) throws Exception {
+    List<PlazaInfoDTO> plazasReservadas = new ArrayList<>();
 
     // Obtiene el viaje asociado al idViaje del PlazasDTO
     Viaje viaje = servicioViaje.listarPorId(plazasDTO.getIdViaje());
 
     // Recorre el array de idPlaza
-    for (Integer elemento : plazasDTO.getIdPlaza()) {
+    for (Integer idPlaza : plazasDTO.getIdPlaza()) {
         // Busca la plaza por ID
-        Plazas pDisponible = servicioPlazas.listarPorId(elemento);
+        Plazas plazaDisponible = servicioPlazas.listarPorId(idPlaza);
 
         // Verifica si la plaza está ocupada
-        if (pDisponible.getU1() != null) {
-            throw new ExcepcionNoEncontradoModelo("Plaza ocupada para el ID: " + elemento);
+        if (plazaDisponible.getU1() != null) {
+            throw new ExcepcionNoEncontradoModelo("Plaza ocupada para el ID: " + idPlaza);
         }
 
         // Asigna el usuario a la plaza
-        pDisponible.setU1(servicioUsuario.listarPorId(plazasDTO.getDni()));
+        plazaDisponible.setU1(servicioUsuario.listarPorId(plazasDTO.getDni()));
 
         // Guarda la plaza modificada
-        Plazas plazaModificada = servicioPlazas.modificar(pDisponible);
+        Plazas plazaModificada = servicioPlazas.modificar(plazaDisponible);
 
-        // Agrega el DTO de la plaza reservada a la lista
-        PlazasDTO plazaDTO = mapper.map(plazaModificada, PlazasDTO.class);
-        plazasReservadas.add(plazaDTO);
+        // Agrega el DTO de la plaza reservada a la lista de PlazaInfoDTO
+        PlazaInfoDTO plazaInfoDTO = new PlazaInfoDTO();
+        plazaInfoDTO.setId(plazaModificada.getIdPlaza()); // Asegúrate de tener el método getIdPlaza
+        plazaInfoDTO.setOcupada(true); // Marcamos como ocupada
+
+        plazasReservadas.add(plazaInfoDTO);
     }
 
     // Actualiza el número de plazas disponibles
@@ -73,6 +117,7 @@ public ResponseEntity<List<PlazasDTO>> reservar(@Validated @RequestBody PlazasDT
     // Devuelve las plazas reservadas
     return new ResponseEntity<>(plazasReservadas, HttpStatus.OK);
 }
+
     @PutMapping("/cancelarReserva")
     public ResponseEntity<List<PlazasDTO>> cancelarReserva(@Validated @RequestBody PlazasDTO plazasDTO) throws Exception {
         List<PlazasDTO> plazasCanceladas = new ArrayList<>();

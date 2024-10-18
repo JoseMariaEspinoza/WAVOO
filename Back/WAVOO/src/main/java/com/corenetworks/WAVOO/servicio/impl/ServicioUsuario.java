@@ -1,8 +1,9 @@
 package com.corenetworks.WAVOO.servicio.impl;
 
 import com.corenetworks.WAVOO.dto.FormularioUsuario;
-import com.corenetworks.WAVOO.dto.impl.FormularioUsuarioDTO;
+import com.corenetworks.WAVOO.dto.IUsuario;
 import com.corenetworks.WAVOO.dto.impl.UsuarioDTO;
+import com.corenetworks.WAVOO.excepciones.ContrasenaIncorrectaException;
 import com.corenetworks.WAVOO.excepciones.ExcepcionNoEncontradoModelo;
 import com.corenetworks.WAVOO.modelo.Coche;
 import com.corenetworks.WAVOO.modelo.Conductor;
@@ -49,19 +50,7 @@ public class ServicioUsuario extends CRUDImpl<Usuario,String> implements IServic
         // Guardar el coche asociado a un conductor
         repoCoche.save(coche);
     }
-    public UsuarioDTO verificarUsuario(String dni, String contrasena) {
-        UsuarioDTO usuarioDTO = repoUsuario.findUsuarioDTOByDni(dni)
-                .orElseThrow(() -> new ExcepcionNoEncontradoModelo("Usuario no encontrado con DNI: " + dni));
 
-        if (!usuarioDTO.getContrasena().equals(contrasena)) {
-            try {
-                throw new Exception("Contraseña incorrecta");
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return usuarioDTO;
-    }
     public List<Coche> obtenerCochesPorConductor(String dni) {
         Usuario usuario = repoUsuario.findById(dni)
                 .orElseThrow(() -> new ExcepcionNoEncontradoModelo("DNI no encontrado"));
@@ -81,6 +70,20 @@ public class ServicioUsuario extends CRUDImpl<Usuario,String> implements IServic
     @Override
     public Optional<Coche> buscarCochePorMatricula(String matricula) {
         return repoCoche.findByMatricula(matricula);
+    }
+
+    @Override
+    public FormularioUsuario identificacion(String dni, String contrasena) {
+        // Realizar la búsqueda del usuario en el repositorio
+        FormularioUsuario usuario = repoUsuario.identificacion(dni, contrasena);
+
+        // Comprobar si el usuario no fue encontrado
+        if (usuario == null) {
+            throw new ExcepcionNoEncontradoModelo("Usuario no encontrado o inactivo.");
+        }
+
+        // Retornar el objeto IUsuario encontrado
+        return repoUsuario.identificacion(dni, contrasena);
     }
 
 

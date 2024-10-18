@@ -1,0 +1,62 @@
+.pagina{
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    height: 100vh; /* Altura completa de la ventana */
+    margin: 0; /* Elimina el margen por defecto */
+    font-family: Arial, sans-serif; /* Fuente más legible */
+}
+
+.container {
+    background-color: #f9f9f9; /* Color de fondo más claro */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    width: 300px; /* Ancho fijo para el contenedor */
+    text-align: center; /* Centrar el texto dentro del contenedor */
+}
+
+.perfil img {
+    width: 80px; /* Ancho del avatar */
+    height: 80px; /* Alto del avatar */
+    border-radius: 50%; /* Hacer la imagen redonda */
+    margin-bottom: 15px; /* Espacio debajo de la imagen */
+}
+
+.formulario label {
+    display: block; /* Asegurarse de que las etiquetas se muestren en una nueva línea */
+    margin-top: 10px; /* Espacio por encima de las etiquetas */
+}
+
+.formulario input {
+    width: 100%; /* Ancho completo del contenedor */
+    padding: 10px; /* Espaciado interno para los inputs */
+    margin-top: 5px; /* Espacio por encima de los inputs */
+    border: 1px solid #ccc; /* Borde ligero */
+    border-radius: 5px; /* Bordes redondeados para los inputs */
+}
+
+button {
+    background-color: #007BFF; /* Color de fondo azul */
+    color: white; /* Texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    margin-top: 15px; /* Espacio por encima del botón */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+}
+
+button:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+}
+
+a {
+    display: block; /* Asegurarse de que el enlace se muestre en una nueva línea */
+    margin-top: 10px; /* Espacio por encima del enlace */
+    color: #007BFF; /* Color del enlace */
+    text-decoration: none; /* Sin subrayado */
+}
+
+a:hover {
+    text-decoration: underline; /* Subrayar al pasar el ratón */
+}

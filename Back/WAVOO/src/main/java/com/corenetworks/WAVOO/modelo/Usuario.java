@@ -27,7 +27,7 @@ public class Usuario {
     private LocalDate fechaNacimiento;
     @Column(length = 50, nullable = false)
     private String email;
-    @Column(length = 10, nullable = false)
+    @Column(length = 10)
     private String usuario;
     @Column(length = 8, nullable = false)
     private String contrasena;

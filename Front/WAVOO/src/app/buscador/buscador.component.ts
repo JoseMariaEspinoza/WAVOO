@@ -25,12 +25,33 @@ export class BuscadorComponent {
   constructor(private servicio: ViajesService, private router: Router) {}
 
   buscar(): void {
-    this.servicio.setResultadosBusqueda(this.origen, this.destino, this.fInicio, this.fFin, this.pDisponibles)
-    .subscribe(datos => {
-      this.busquedaInicial = datos
-      console.log(datos)
-      this.router.navigate(['/buscador/inicial']);
-    });
-    
+    // Verifica si todos los campos están vacíos
+    if (!this.origen && !this.destino && !this.fInicio && !this.fFin && !this.pDisponibles) {
+      // Si todos los campos están vacíos, llama al método que obtiene todos los viajes
+      this.servicio.buscarTodosLosViajes().subscribe(
+        datos => {
+          this.busquedaInicial = datos;
+          console.log(datos);
+          this.router.navigate(['/buscador/inicial']);
+        },
+        error => {
+          console.error('Error al obtener todos los viajes', error);
+        }
+      );
+    } else {
+      // Si hay filtros aplicados, ejecuta la búsqueda filtrada
+      this.servicio.setResultadosBusqueda(this.origen, this.destino, this.fInicio, this.fFin, this.pDisponibles)
+      .subscribe(
+        datos => {
+          this.busquedaInicial = datos;
+          console.log(datos);
+          this.router.navigate(['/buscador/inicial']);
+        },
+        error => {
+          console.error('Error al buscar viajes filtrados', error);
+        }
+      );
+    }
   }
+  
 }

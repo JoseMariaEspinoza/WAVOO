@@ -4,6 +4,7 @@ import { entorno } from '../_entorno/entorno';
 import { BusquedaInicial } from '../_modelo/BusquedaInicial';
 import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 import { BusquedaCompleta } from '../_modelo/BusquedaCompleta';
+import { Viaje } from '../_modelo/Viaje';
 
 @Injectable({
   providedIn: 'root'
@@ -39,10 +40,14 @@ export class ViajesService {
     matricula: '',
     carroceria: '',
     anio: 0,
-    id_plaza: []
+    plazas: []
   });
   resultadosCompleta$ = this.resultadosCompletaSubject.asObservable();
 
+  // Método para buscar todos los viajes
+  buscarTodosLosViajes(): Observable<any> {
+    return this.http.get(`${this.url}/todos`);
+  }
   setResultadosBusqueda(origen: string, destino: string, fInicio: Date, fFin: Date, pDisponibles: number): Observable<BusquedaInicial[]> {
     const searchUrl = `${this.url}/${origen}/${destino}/${fInicio}/${fFin}/${pDisponibles}`;
     return this.http.get<BusquedaInicial[]>(searchUrl).pipe(
@@ -67,6 +72,10 @@ export class ViajesService {
 
   getResultadosCompleta(): Observable<BusquedaCompleta> {
     return this.resultadosCompleta$; // Devolvemos el observable del BehaviorSubject
+  }
+
+  insertarViaje(viaje: Viaje): Observable<Viaje> {
+    return this.http.post<Viaje>(this.url, viaje);
   }
 
 }

@@ -1,0 +1,24 @@
+<div class="pagina">
+    <div class="container">
+        <div class="content">
+            <h3>Bienvenido</h3>
+            <div class="perfil">
+                <a routerLink="/login">
+                    <img 
+                        *ngIf="usuario.fotoUsuario"
+                        [src]="usuario.fotoUsuario"
+                        alt="perfil">
+                    <span *ngIf="usuario.usuario">{{ usuario.usuario }}</span>
+                </a>
+            </div>
+            <div class="formulario">
+                <label>Introduzca DNI:</label><br>
+                <input type="text" [(ngModel)]="dni" placeholder="12345678A" required><br>
+                <label>Introduzca Contraseña:</label><br>
+                <input type="password" [(ngModel)]="contrasena" placeholder="xxxxxxxx" required><br>
+                <button (click)="acceder()" [disabled]="!dni || !contrasena">Acceder</button><br>
+                ¿No te has registrado aún? <a routerLink="">Hazlo ahora!</a>
+            </div>  
+        </div>
+    </div>
+</div>

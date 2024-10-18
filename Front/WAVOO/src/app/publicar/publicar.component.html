@@ -1,0 +1,24 @@
+<form (ngSubmit)="guardarViaje()" #viajeForm="ngForm" class="viaje-form">
+    <h2>Registro de Viaje</h2>
+  
+    <label for="origen">Origen:</label>
+    <input type="text" id="origen" required [(ngModel)]="viaje.origen" name="origen">
+  
+    <label for="destino">Destino:</label>
+    <input type="text" id="destino" required [(ngModel)]="viaje.destino" name="destino">
+  
+    <label for="precio">Precio:</label>
+    <input type="number" id="precio" required [(ngModel)]="viaje.precio" name="precio" min="0">
+  
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha" required [(ngModel)]="viaje.fecha" name="fecha">
+  
+    <label for="hora">Hora:</label>
+    <input type="time" id="hora" required [(ngModel)]="viaje.hora" name="hora">
+  
+    <label for="matricula">Matrícula del Coche:</label>
+    <input type="text" id="matricula" required [(ngModel)]="viaje.matricula" name="matricula">
+  
+    <button type="submit" [disabled]="viajeForm.invalid">Publicar</button>
+  </form>
+  

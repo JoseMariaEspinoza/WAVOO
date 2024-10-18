@@ -34,7 +34,7 @@ public class BusquedaCompletaDTO{
     private String carroceria;
     private int anio;
 
-    private List<Integer> idPlaza;
+    private List<PlazaInfoDTO> plazas;
 
 }
 

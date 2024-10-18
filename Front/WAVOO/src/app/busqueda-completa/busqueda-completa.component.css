@@ -27,6 +27,9 @@
 }
 
 .informacion-coche {
-  border-left: 1px solid #ccc; /* Línea divisoria a la izquierda */
   padding-left: 16px; /* Espaciado interno a la izquierda */
 }
+.centrado {
+  text-align: center; /* Centra el contenido en el <td> */
+}
+

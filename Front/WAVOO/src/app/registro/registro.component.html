@@ -1,0 +1,83 @@
+<form (ngSubmit)="guardarUsuario()" #usuarioForm="ngForm">
+    <h2>Registro de Usuario</h2>
+
+    <label for="dni">DNI:</label>
+    <input type="text" id="dni" required [(ngModel)]="usuario.dni" name="dni">
+
+    <label for="contrasena">Contraseña:</label>
+    <input type="password" id="contrasena" required [(ngModel)]="usuario.contrasena" name="contrasena">
+
+    <label for="direccion">Dirección:</label>
+    <input type="text" id="direccion" required [(ngModel)]="usuario.direccion" name="direccion">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required [(ngModel)]="usuario.email" name="email">
+
+    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+    <input type="date" id="fechaNacimiento" required [(ngModel)]="usuario.fechaNacimiento" name="fechaNacimiento">
+
+    <label for="fotoUsuario">Foto de Usuario:</label>
+    <input type="file" id="fotoUsuario" (change)="onFileChange($event)" name="fotoUsuario">
+
+    <label for="genero">Género:</label>
+    <select id="genero" required [(ngModel)]="usuario.genero" name="genero">
+        <option value="masculino">Masculino</option>
+        <option value="femenino">Femenino</option>
+        <option value="otro">Otro</option>
+    </select>
+
+    <label for="nombreCompleto">Nombre Completo:</label>
+    <input type="text" id="nombreCompleto" required [(ngModel)]="usuario.nombreCompleto" name="nombreCompleto">
+
+    <label for="permisoConducir">Permiso de Conducir:</label>
+    <input type="checkbox" id="permisoConducir" [(ngModel)]="usuario.permisoConducir" name="permisoConducir">
+
+    <label for="rPreguntaSeguridad">Pregunta de Seguridad:</label>
+    <input type="text" id="rPreguntaSeguridad" required [(ngModel)]="usuario.rPreguntaSeguridad" name="rPreguntaSeguridad">
+
+    <label for="telefono">Teléfono:</label>
+    <input type="text" id="telefono" required [(ngModel)]="usuario.telefono" name="telefono">
+
+    <label for="usuario">Nombre de Usuario:</label>
+    <input type="text" id="usuario" required [(ngModel)]="usuario.usuario" name="usuario">
+
+    <!-- Mostrar foto del carnet solo si tiene permiso de conducir -->
+    <div *ngIf="usuario.permisoConducir">
+        <label for="fotoCarnet">Foto del Carnet:</label>
+        <input type="file" id="fotoCarnet" (change)="onFileChangeCarnet($event)" name="fotoCarnet">
+    </div>
+
+    <!-- Formulario para coches -->
+    <div *ngIf="usuario.permisoConducir">
+        <h3>Coches Registrados</h3>
+        <div *ngFor="let coche of usuario.coches; let i = index">
+            <h4>Coche {{ i + 1 }}</h4>
+            <label for="matricula-{{i}}">Matrícula:</label>
+            <input type="text" id="matricula-{{i}}" required [(ngModel)]="coche.matricula" name="matricula-{{i}}">
+
+            <label for="marca-{{i}}">Marca:</label>
+            <input type="text" id="marca-{{i}}" required [(ngModel)]="coche.marca" name="marca-{{i}}">
+
+            <label for="modelo-{{i}}">Modelo:</label>
+            <input type="text" id="modelo-{{i}}" required [(ngModel)]="coche.modelo" name="modelo-{{i}}">
+
+            <label for="carroceria-{{i}}">Carrocería:</label>
+            <input type="text" id="carroceria-{{i}}" required [(ngModel)]="coche.carroceria" name="carroceria-{{i}}">
+
+            <label for="anio-{{i}}">Año:</label>
+            <input type="number" id="anio-{{i}}" required [(ngModel)]="coche.anio" name="anio-{{i}}" min="1900" max="2099" step="1">
+
+            <label for="numeroPlazas-{{i}}">Número de Plazas:</label>
+            <input type="number" id="numeroPlazas-{{i}}" required [(ngModel)]="coche.numeroPlazas" name="numeroPlazas-{{i}}" min="1">
+
+            <label for="fotoCoche-{{i}}">Foto del Coche:</label>
+            <input type="file" id="fotoCoche-{{i}}" (change)="onFileChangeCoche($event, i)" name="fotoCoche-{{i}}">
+
+            <button type="button" (click)="eliminarCoche(i)">Eliminar Coche</button>
+        </div>
+
+        <button type="button" (click)="agregarCoche()">Agregar Coche +</button>
+    </div>
+
+    <button type="submit" [disabled]="usuarioForm.invalid">Guardar</button>
+</form>

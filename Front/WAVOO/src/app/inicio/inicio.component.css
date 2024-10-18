@@ -1,7 +1,15 @@
 h1 {
     text-align: center;
     margin-top: 5%;
-    margin-bottom: 6%;
+    font-size: 2.5rem; /* Aumenta el tamaño del h1 */
+    font-family: 'Times New Roman', Times, serif; /* Cambia la fuente a un estilo de carta */
+}
+
+h3 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif; /* Cambia la fuente a un estilo de carta */
+    font-style: italic; /* Aplica cursiva a h3 */
+    margin-top: 5%;
 }
 
 .contenedor-comentarios {
@@ -24,6 +32,7 @@ h1 {
     width: 30%;
     text-align: center;
     transition: transform 0.3s;
+    font-family: 'Georgia', serif; /* Cambia la fuente para las tarjetas */
 }
 
 .tarjeta-comentario h3 {
@@ -35,6 +44,7 @@ h1 {
 .tarjeta-comentario p {
     font-size: 1rem;
     color: #666;
+    font-style: italic; /* Aplica cursiva a los párrafos dentro de la tarjeta */
 }
 
 .tarjeta-comentario:hover {

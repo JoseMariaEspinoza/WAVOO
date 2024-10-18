@@ -2,11 +2,13 @@ package com.corenetworks.WAVOO.controlador;
 
 
 import com.corenetworks.WAVOO.dto.FormularioUsuario;
+import com.corenetworks.WAVOO.dto.IUsuario;
 import com.corenetworks.WAVOO.dto.impl.CochesDTO;
 import com.corenetworks.WAVOO.dto.impl.EditarUsuarioDTO;
 import com.corenetworks.WAVOO.dto.impl.FormularioUsuarioDTO;
 
 import com.corenetworks.WAVOO.dto.impl.UsuarioDTO;
+import com.corenetworks.WAVOO.excepciones.ContrasenaIncorrectaException;
 import com.corenetworks.WAVOO.excepciones.ExcepcionNoEncontradoModelo;
 import com.corenetworks.WAVOO.modelo.Coche;
 import com.corenetworks.WAVOO.modelo.Conductor;
@@ -92,10 +94,14 @@ public class UsuarioControlador {
 
 
     // Obtener un usuario por su ID
-    @PostMapping("/login")
-    public ResponseEntity<UsuarioDTO> identificacion(@RequestBody UsuarioDTO usuarioDTO) throws Exception {
-        UsuarioDTO dtoResponse = servicioUsuario.verificarUsuario(usuarioDTO.getDni(), usuarioDTO.getContrasena());
-        return new ResponseEntity<>(dtoResponse, HttpStatus.OK);
+    @GetMapping("/login/{dni}/{contrasena}")
+    public ResponseEntity<UsuarioDTO> identificacion(@PathVariable("dni") String dni, @PathVariable("contrasena") String contrasena) {
+
+        FormularioUsuario iUsuario = servicioUsuario.identificacion(dni, contrasena);
+        UsuarioDTO usuarioDTO = mapper.map(iUsuario, UsuarioDTO.class);
+        System.out.println(usuarioDTO);
+        return new ResponseEntity<>(usuarioDTO, HttpStatus.OK);
+
     }
 
     @PostMapping("/sign-up")

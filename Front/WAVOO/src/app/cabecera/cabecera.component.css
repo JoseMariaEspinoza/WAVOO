@@ -19,8 +19,10 @@ body {
 }
 
 .logo img {
-    max-width: 150px;
-    height: auto;
+    width: 600px; /* Ancho máximo de la imagen */
+    height: 100px; /* Altura fija para recortar la imagen */
+    object-fit: cover; /* Cubre el área del contenedor sin distorsionar la imagen */
+    object-position: center; /* Centra la imagen en el contenedor */
 }
 
 .navegacion {

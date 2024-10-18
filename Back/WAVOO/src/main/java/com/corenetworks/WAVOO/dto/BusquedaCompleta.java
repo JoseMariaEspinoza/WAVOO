@@ -1,5 +1,7 @@
 package com.corenetworks.WAVOO.dto;
 
+import com.corenetworks.WAVOO.dto.impl.PlazaInfoDTO;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -31,5 +33,5 @@ public interface BusquedaCompleta{
     int getAnio();
 
     // Métodos para obtener los datos de las plazas
-    List<Integer> getIdPlaza();
+    List<PlazaInfoDTO> getPlazas();
 }
